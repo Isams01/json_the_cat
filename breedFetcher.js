@@ -8,9 +8,8 @@ request(endpoint, (error, response, body) => {
   if (response.statusCode !== 200) {
     console.log('Uh oh, something went wrong');
     process.exit(0);
-  }
-  else if (body.length === 0) {
-    console.log('Breed not found')
+  } else if (body.length === 0) {
+    console.log('Breed not found');
   } else {
     console.log(catData[0].description);
   }
