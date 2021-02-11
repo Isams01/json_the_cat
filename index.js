@@ -9,4 +9,4 @@ fetchBreedDescription(breed, (err,description) => {
   } else {
     console.log(description);
   }
-})
+});
