@@ -15,4 +15,11 @@ describe('fetchBreedDescription', () => {
       done();
     });
   });
+  it('should say "breed not found" when non-breed is entered', (done) => {
+    fetchBreedDescription('asdf', (err,desc) => {
+      const expectedDescription = 'breed not found';
+      assert.equal(expectedDescription, desc.trim());
+      done();
+    });
+  });
 });
