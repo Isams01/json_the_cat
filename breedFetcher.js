@@ -1,6 +1,7 @@
 const request = require('request');
 
-const endpoint = 'https://api.thecatapi.com/v1/breeds/search?name=siberian';
+const breed = process.argv.slice(2)[0];
+const endpoint = `https://api.thecatapi.com/v1/breeds/search?name=${breed}`;
 
 request(endpoint, (error, response, body) => {
   const catData = JSON.parse(body);
@@ -9,10 +10,9 @@ request(endpoint, (error, response, body) => {
     process.exit(0);
   }
   else if (body.length === 0) {
-    console.log('Bread not found')
+    console.log('Breed not found')
+  } else {
+    console.log(catData[0].description);
   }
-  console.log('error:', error); // Print the error if one occurred
-  console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-  console.log('body:', JSON.parse(body)); // Print the HTML for the Google homepage.
 });
 
